@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أرامكو للاستثمار - إنشاء حساب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        :root {
+            --primary: #4d7cfe;
+            --surface: #f8f9ff;
+            --on-surface: #1a1c1e;
+            --outline: #74777f;
+            --error: #ba1a1a;
+        }
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: var(--surface);
+            color: var(--on-surface);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .aramco-gradient {
+            background: linear-gradient(135deg, #4d7cfe 0%, #2563eb 100%);
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .input-field {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--outline);
+            background: white;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        .input-field:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(77, 124, 254, 0.2);
+            outline: none;
+        }
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            color: var(--outline);
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s active;
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            color: var(--outline);
+        }
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background-color: rgba(77, 124, 254, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="aramco-gradient text-white pt-10 pb-20 px-6 rounded-b-[40px] shadow-lg relative overflow-hidden">
+        <div class="flex justify-between items-center mb-8 relative z-10">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+                <h1 class="text-2xl font-bold tracking-tight">Broadcom</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="bg-white/20 p-2 rounded-full backdrop-blur-md">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <div class="bg-white/20 px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1 text-sm">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                    <span>عربي</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 text-center">
+            <p class="text-white/80 text-sm mb-1">شفرة الدعوة :</p>
+            <div class="flex items-center justify-center gap-3">
+                <span id="inviteCode" class="text-4xl font-bold tracking-widest">r9s3fd</span>
+                <button onclick="copyInvite()" class="bg-black/30 px-4 py-1 rounded-full text-xs hover:bg-black/40 transition-colors">نسخ</button>
+            </div>
+        </div>
+        
+        <!-- Abstract Decoration -->
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-6 -mt-10 mb-20 relative z-20">
+        <div class="bg-white rounded-3xl shadow-xl p-6">
+            
+            <!-- Tabs -->
+            <div class="flex border-b border-gray-100 mb-8">
+                <button class="tab-btn active" id="emailTab">إنشاء حساب</button>
+                <a href="login.html" class="tab-btn">تسجيل الدخول</a>
+            </div>
+
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                
+                <!-- Email/Phone Input -->
+                <div class="input-group">
+                    <label class="block text-sm font-medium mb-2 pr-1">البريد الإلكتروني أو رقم الهاتف</label>
+                    <input type="text" class="input-field" placeholder="user@email.com / +966" required>
+                    <span class="material-symbols-outlined input-icon">mail</span>
+                </div>
+
+                <!-- Password Input -->
+                <div class="input-group">
+                    <label class="block text-sm font-medium mb-2 pr-1">كلمة المرور</label>
+                    <input type="password" id="password" class="input-field" placeholder="أدخل كلمة المرور" required>
+                    <span class="material-symbols-outlined input-icon">lock</span>
+                    <button type="button" onclick="togglePassword('password')" class="absolute left-4 top-[50%] translate-y-[20%] text-gray-400">
+                        <span class="material-symbols-outlined text-xl">visibility_off</span>
+                    </button>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="input-group">
+                    <label class="block text-sm font-medium mb-2 pr-1">تأكيد كلمة المرور</label>
+                    <input type="password" id="confirmPassword" class="input-field" placeholder="أعد إدخال كلمة المرور" required>
+                    <span class="material-symbols-outlined input-icon">lock_reset</span>
+                    <button type="button" onclick="togglePassword('confirmPassword')" class="absolute left-4 top-[50%] translate-y-[20%] text-gray-400">
+                        <span class="material-symbols-outlined text-xl">visibility_off</span>
+                    </button>
+                </div>
+
+                <!-- Invitation Code (Pre-filled) -->
+                <div class="input-group">
+                    <label class="block text-sm font-medium mb-2 pr-1">شفرة الدعوة</label>
+                    <input type="text" class="input-field bg-gray-50" value="2vb23q" readonly>
+                    <span class="material-symbols-outlined input-icon">group_add</span>
+                </div>
+
+                <button type="submit" class="btn-primary mt-4 shadow-lg shadow-blue-200 flex items-center justify-center gap-2">
+                    <span>اشتراك</span>
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+            </form>
+
+            <p class="mt-8 text-center text-xs text-gray-500 leading-relaxed">
+                بالاستمرار، أنت توافق على <a href="#" class="text-blue-600 font-bold">شروط الخدمة</a> و <a href="#" class="text-blue-600 font-bold">سياسة الخصوصية</a> الخاصة بمنصة Broadcom العالمية.
+            </p>
+        </div>
+    </main>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 flex justify-around items-center py-3 px-4 z-50">
+        <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400">
+            <span class="material-symbols-outlined">home</span>
+            <span class="text-[10px]">بيت</span>
+        </a>
+        <a href="tasks.html" class="flex flex-col items-center gap-1 text-gray-400">
+            <span class="material-symbols-outlined">assignment</span>
+            <span class="text-[10px]">مهمة</span>
+        </a>
+        <a href="team.html" class="flex flex-col items-center gap-1 text-gray-400">
+            <span class="material-symbols-outlined">group</span>
+            <span class="text-[10px]">فريق</span>
+        </a>
+        <a href="vip.html" class="flex flex-col items-center gap-1 text-gray-400">
+            <span class="material-symbols-outlined">military_tech</span>
+            <span class="text-[10px]">VIP</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center gap-1 text-gray-400">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-[10px]">أنا</span>
+        </a>
+    </nav>
+
+    <script>
+        function togglePassword(id) {
+            const el = document.getElementById(id);
+            const icon = el.nextElementSibling.nextElementSibling.querySelector('span');
+            if (el.type === 'password') {
+                el.type = 'text';
+                icon.innerText = 'visibility';
+            } else {
+                el.type = 'password';
+                icon.innerText = 'visibility_off';
+            }
+        }
+
+        function copyInvite() {
+            const code = document.getElementById('inviteCode').innerText;
+            navigator.clipboard.writeText(code);
+            alert('تم نسخ شفرة الدعوة: ' + code);
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            // In a real app, this would send data to the server
+            alert('تم إنشاء الحساب بنجاح! سيتم تحويلك للوحة التحكم.');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
