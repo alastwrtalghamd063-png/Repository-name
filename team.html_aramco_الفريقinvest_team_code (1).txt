@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أرامكو للاستثمار - نظام الفريق</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        :root {
+            --primary: #4d7cfe;
+            --primary-gradient: linear-gradient(135deg, #4d7cfe 0%, #2563eb 100%);
+            --surface: #f8f9ff;
+            --on-surface: #1a1c1e;
+            --outline: #e2e8f0;
+        }
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: var(--surface);
+            color: var(--on-surface);
+            margin: 0;
+            padding-bottom: 90px;
+        }
+        .header-bg {
+            background: var(--primary-gradient);
+            border-radius: 0 0 40px 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .level-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #bef264;
+            color: #3f6212;
+            padding: 4px 12px;
+            border-radius: 0 12px 12px 0;
+            font-size: 10px;
+            font-weight: 800;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header-bg text-white pt-12 pb-20 px-6 relative overflow-hidden">
+        <div class="flex justify-between items-center mb-8 relative z-10">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">group</span>
+                <h1 class="text-2xl font-bold tracking-tight">Broadcom</h1>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="bg-white/20 p-2 rounded-full backdrop-blur-md">
+                    <span class="material-symbols-outlined text-xl">notifications</span>
+                </button>
+                <div class="bg-white/20 px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1 text-sm font-medium">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                    <span>عربي</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center relative z-10">
+            <p class="text-white/80 text-sm mb-1 font-medium">شفرة الدعوة :</p>
+            <div class="flex items-center justify-center gap-3">
+                <span id="inviteCode" class="text-4xl font-black tracking-[0.2em] drop-shadow-md">r9s3fd</span>
+                <button onclick="copyText('r9s3fd', 'تم نسخ الكود')" class="bg-black/30 px-5 py-1.5 rounded-full text-xs font-bold hover:bg-black/40 transition-all copy-btn">نسخ</button>
+            </div>
+        </div>
+        
+        <!-- Decoration -->
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+    </header>
+
+    <main class="px-5 -mt-10 relative z-20">
+        <!-- Referral Link Card -->
+        <div class="card p-6 mb-6">
+            <h3 class="text-slate-500 text-sm font-bold mb-4 text-center">شارك رابط الإحالة الخاص بك وابدأ في الربح</h3>
+            <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                <p id="refLink" class="text-xs text-slate-600 font-mono flex-1 truncate">https://broadcom.invest/ref/USER992</p>
+                <button onclick="copyText('https://broadcom.invest/ref/USER992', 'تم نسخ الرابط')" class="bg-black text-white px-5 py-2 rounded-xl text-xs font-bold copy-btn">نسخ</button>
+            </div>
+            <div class="flex justify-between items-center mt-6">
+                <div class="flex gap-4">
+                    <span class="material-symbols-outlined text-slate-400">share</span>
+                    <span class="material-symbols-outlined text-slate-400">qr_code_2</span>
+                    <span class="material-symbols-outlined text-slate-400">content_copy</span>
+                </div>
+                <button class="text-blue-600 text-sm font-bold flex items-center gap-1">
+                    المزيد <span class="material-symbols-outlined text-sm">chevron_left</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Team Stats Grid -->
+        <div class="card p-6 mb-6">
+            <div class="flex items-center gap-2 mb-6">
+                <span class="material-symbols-outlined text-blue-600">calendar_month</span>
+                <h3 class="font-bold text-slate-800">فترة الاختيار</h3>
+            </div>
+            <div class="grid grid-cols-3 gap-y-8 text-center">
+                <div>
+                    <p class="text-[10px] text-slate-400 mb-1 font-bold">انسحاب الفريق</p>
+                    <p class="text-xl font-black text-slate-800">$111.00</p>
+                </div>
+                <div>
+                    <p class="text-[10px] text-slate-400 mb-1 font-bold">إعادة شحن الفريق</p>
+                    <p class="text-xl font-black text-slate-800">$111.42</p>
+                </div>
+                <div>
+                    <p class="text-[10px] text-slate-400 mb-1 font-bold">حجم الفريق</p>
+                    <p class="text-xl font-black text-slate-800">47</p>
+                </div>
+                <div>
+                    <p class="text-[10px] text-slate-400 mb-1 font-bold">الانسحاب الأول</p>
+                    <p class="text-xl font-black text-slate-800">4</p>
+                </div>
+                <div>
+                    <p class="text-[10px] text-slate-400 mb-1 font-bold">إعادة الشحن لأول مرة</p>
+                    <p class="text-xl font-black text-slate-800">15</p>
+                </div>
+                <div>
+                    <p class="text-[10px] text-slate-400 mb-1 font-bold">فريق جديد</p>
+                    <p class="text-xl font-black text-slate-800">3</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referral Levels -->
+        <div class="space-y-4">
+            <!-- Level 1 -->
+            <div class="card p-6 relative overflow-hidden flex items-center justify-between border-r-8 border-blue-600">
+                <span class="level-badge">مستوى 1</span>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">يسجل / صالح</p>
+                        <p class="text-xl font-black text-slate-800">25/25</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">إجمالي الدخل</p>
+                        <p class="text-xl font-black text-slate-800">7.29365</p>
+                    </div>
+                </div>
+                <div class="text-left flex flex-col items-end gap-3">
+                    <div class="text-left">
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">نسبة العمولة</p>
+                        <p class="text-2xl font-black text-blue-600">19%</p>
+                    </div>
+                    <button class="bg-black text-white px-6 py-2 rounded-xl text-xs font-bold copy-btn">تفاصيل</button>
+                </div>
+            </div>
+
+            <!-- Level 2 -->
+            <div class="card p-6 relative overflow-hidden flex items-center justify-between border-r-8 border-purple-600">
+                <span class="level-badge">مستوى 2</span>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">يسجل / صالح</p>
+                        <p class="text-xl font-black text-slate-800">16/16</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">إجمالي الدخل</p>
+                        <p class="text-xl font-black text-slate-800">0.4521</p>
+                    </div>
+                </div>
+                <div class="text-left flex flex-col items-end gap-3">
+                    <div class="text-left">
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">نسبة العمولة</p>
+                        <p class="text-2xl font-black text-purple-600">5%</p>
+                    </div>
+                    <button class="bg-black text-white px-6 py-2 rounded-xl text-xs font-bold copy-btn">تفاصيل</button>
+                </div>
+            </div>
+
+            <!-- Level 3 -->
+            <div class="card p-6 relative overflow-hidden flex items-center justify-between border-r-8 border-orange-500">
+                <span class="level-badge">مستوى 3</span>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">يسجل / صالح</p>
+                        <p class="text-xl font-black text-slate-800">8/8</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">إجمالي الدخل</p>
+                        <p class="text-xl font-black text-slate-800">0.1234</p>
+                    </div>
+                </div>
+                <div class="text-left flex flex-col items-end gap-3">
+                    <div class="text-left">
+                        <p class="text-[10px] text-slate-400 font-bold mb-1">نسبة العمولة</p>
+                        <p class="text-2xl font-black text-orange-500">3%</p>
+                    </div>
+                    <button class="bg-black text-white px-6 py-2 rounded-xl text-xs font-bold copy-btn">تفاصيل</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-slate-100 flex justify-around items-center py-3 px-4 z-50 pb-safe shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
+        <a href="index.html" class="flex flex-col items-center gap-1 text-slate-400 transition-colors">
+            <span class="material-symbols-outlined">home</span>
+            <span class="text-[10px] font-bold">بيت</span>
+        </a>
+        <a href="tasks.html" class="flex flex-col items-center gap-1 text-slate-400 transition-colors">
+            <span class="material-symbols-outlined">assignment</span>
+            <span class="text-[10px] font-bold">مهمة</span>
+        </a>
+        <a href="team.html" class="flex flex-col items-center gap-1 text-blue-600 transition-colors">
+            <span class="material-symbols-outlined font-fill">group</span>
+            <span class="text-[10px] font-black">فريق</span>
+        </a>
+        <a href="vip.html" class="flex flex-col items-center gap-1 text-slate-400 transition-colors">
+            <span class="material-symbols-outlined">military_tech</span>
+            <span class="text-[10px] font-bold">VIP</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400 transition-colors">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-[10px] font-bold">أنا</span>
+        </a>
+    </nav>
+
+    <script>
+        function copyText(text, msg) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert(msg);
+            });
+        }
+    </script>
+</body>
+</html>
